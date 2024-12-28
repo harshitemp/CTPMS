@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            margin-bottom: 0;
+        }
+        .navbar-brand {
+            position: relative;
+            display: inline-block;
+            padding-left: 50px;
+        }
+        .navbar-brand::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background: url('C:/Domain project/logo.jpg') no-repeat center center/contain;
+            transform: translateY(-60%);
+        }
+        .header {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #1e1e36;
+            color: white;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .image-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            padding: 50px 0;
+        }
+        .image-button {
+            text-align: center;
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .image-button img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        .image-button span {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+        .registration-form {
+            display: none;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+        .registration-form h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">CTPMS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="home_page.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactus.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signup.html">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Registration</h1>
+        <p>Select User Type</p>
+    </div>
+    
+    <!-- Image Buttons -->
+    <div class="image-buttons">
+        <div class="image-button" onclick="showForm('student-form')">
+            <img src="C:/Domain project/student.jpg" alt="Student">
+            <span>Student</span>
+        </div>
+        <div class="image-button" onclick="showForm('university-form')">
+            <img src="C:/Domain project/university.png" alt="University">
+            <span>University</span>
+        </div>
+        <div class="image-button" onclick="showForm('company-form')">
+            <img src="C:/Domain project/company.png" alt="Employer">
+            <span>Company</span>
+        </div>
+    </div>
+
+    <!-- Registration Forms -->
+    <div id="student-form" class="registration-form">
+        <h2>Student Registration</h2>
+        <form onsubmit="submitForm(event, 'studentsmain.html')">
+            <div class="form-group">
+                <label for="studentEmail">Email</label>
+                <input type="email" class="form-control" id="studentEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="studentPassword">Password</label>
+                <input type="password" class="form-control" id="studentPassword" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
+
+    <div id="university-form" class="registration-form">
+        <h2>University Registration</h2>
+        <form onsubmit="submitForm(event, 'universityPage.html')">
+            <div class="form-group">
+                <label for="universityEmail">Email</label>
+                <input type="email" class="form-control" id="universityEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="universityPassword">Password</label>
+                <input type="password" class="form-control" id="universityPassword" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
+
+    <div id="company-form" class="registration-form">
+        <h2>Company Registration</h2>
+        <form onsubmit="submitForm(event, 'companymain.html')">
+            <div class="form-group">
+                <label for="companyEmail">Email</label>
+                <input type="email" class="form-control" id="companyEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="companyPassword">Password</label>
+                <input type="password" class="form-control" id="companyPassword" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        function showForm(formId) {
+            // Hide all forms
+            document.querySelectorAll('.registration-form').forEach(form => {
+                form.style.display = 'none';
+            });
+            // Show the selected form
+            document.getElementById(formId).style.display = 'block';
+        }
+
+        function submitForm(event, redirectUrl) {
+            event.preventDefault();
+            window.location.href = redirectUrl;
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

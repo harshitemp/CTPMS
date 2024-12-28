@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drapcode Job Posting</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            background-color: #212529;
+            color: #fff;
+            width: 200px;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #343a40;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .content h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        .form-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Drapcode</h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Job Posted</a></li>
+                <li><a href="#">View Applicants</a></li>
+                <li><a href="#">Student List</a></li>
+                <li><a href="#">My Profile</a></li>
+                <li><a href="#">Log Out</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>Add New Job</h1>
+            <form>
+                <div class="form-group">
+                    <label class="form-label" for="jobTitle">Job Title:</label>
+                    <input class="form-input" type="text" id="jobTitle" name="jobTitle" placeholder="Enter Job Title">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="jobOverview">Job Overview:</label>
+                    <textarea class="form-textarea" id="jobOverview" name="jobOverview" placeholder="Enter Job Overview"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="responsibilities">Responsibilities and Duties:</label>
+                    <textarea class="form-textarea" id="responsibilities" name="responsibilities" placeholder="Enter Responsibilities and Duties"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="requirements">Requirement:</label>
+                    <textarea class="form-textarea" id="requirements" name="requirements" placeholder="Enter Requirements"></textarea>
+                </div>
+                <button class="form-button" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

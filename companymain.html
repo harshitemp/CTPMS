@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #0b032d;;
+            color: white;
+            height: 100vh;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #f1f1f1;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-actions {
+            display: flex;
+        }
+
+        .header-actions button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .messages {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .logout {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .summary {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .summary-box {
+            background-color: white;
+            padding: 20px;
+            width: 22%;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .jobs {
+            margin-top: 30px;
+        }
+
+        .jobs table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .jobs th, .jobs td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .jobs th {
+            background-color: #f2f2f2;
+        }
+
+        .jobs button {
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .edit {
+            background-color: #6c5ce7;
+            color: white;
+        }
+
+        .delete {
+            background-color: #d63031;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>CTPMS</h2>
+        <ul>
+            <li><a href="home_page.html">Home</a></li>
+            <li><a href="jobsposted.html">Job Posted</a></li>
+            <li><a href="#">View Applicants</a></li>
+            <li><a href="studentsapply.html">Student List</a></li>
+            <li><a href="#">My Profile</a></li>
+            <li><a href="logout.html">Log Out</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <header>
+            <h1>Welcome back, James Brown</h1>
+            <div class="header-actions">
+                <button class="messages">Messages</button>
+                <button class="logout">Log Out</button>
+            </div>
+        </header>
+        <div class="summary">
+            <div class="summary-box">
+                <p>Summary</p>
+                <h2>11</h2>
+                <p>Jobs</p>
+            </div>
+            <div class="summary-box">
+                <p>Summary</p>
+                <h2>2</h2>
+                <p>Students</p>
+            </div>
+            <div class="summary-box">
+                <p>Summary</p>
+                <h2>11</h2>
+                <p>Recruiters</p>
+            </div>
+            <div class="summary-box">
+                <p>Summary</p>
+                <h2>21</h2>
+                <p>Due Task</p>
+            </div>
+        </div>
+        <div class="jobs">
+            <h2>Jobs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Education</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Any Graduate</td>
+                        <td>USA</td>
+                        <td>
+                            <button class="edit">Edit</button>
+                            <button class="delete">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.messages').addEventListener('click', () => {
+            alert('You have clicked Messages');
+        });
+
+        document.querySelector('.logout').addEventListener('click', () => {
+            alert('You have clicked Log Out');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #1e1e36;
+            color: white;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .content h1 {
+            margin-top: 0;
+        }
+        .table-responsive {
+            margin-top: 20px;
+        }
+        .btn-details {
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .btn-details:hover {
+            background-color: #5145cc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>CTPMS</h2>
+    <a href="companymain.html">Home</a>
+    <a href="jobsposted.html">Job Posted</a>
+    <a href="#">View Applicants</a>
+    <a href="studentsapply.html">Student List</a>
+    <a href="#">My Profile</a>
+    <a href="logout.html">Log Out</a>
+</div>
+
+<div class="content">
+    <h1>Students</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Course</th>
+                    <th>Phone Number</th>
+                    <th>Resume</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alex</td>
+                    <td>BCA</td>
+                    <td>+19632587458</td>
+                    <td>dummy.pdf</td>
+                    <td><button class="btn-details" onclick="window.location.href='csprofile.html?name=Alex'">View Details</button></td>
+                </tr>
+                <tr>
+                    <td>John J.</td>
+                    <td>BCA</td>
+                    <td>655535556</td>
+                    <td>dummy.pdf</td>
+                    <td><button class="btn-details" onclick="window.location.href='csprofile.html?name=John J.'">View Details</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">First</a></li>
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            <li class="page-item"><a class="page-link" href="#">Last</a></li>
+        </ul>
+    </nav>
+</div>
+
+</body>
+</html>

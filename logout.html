@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment Form</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .header {
+            color: black; /* Text color remains, but background color is removed */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .menu-button {
+            background-color: #0b032d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            left: 10px;
+            z-index: 1002; /* Ensures the button is above the sidebar */
+        }
+
+        .menu-button:hover {
+            background-color: #232147;
+        }
+
+        .logout-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1002; /* Same z-index as the menu button for consistency */
+        }
+
+        .logout-button:hover {
+            background-color: darkred;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #0b032d;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: -250px; /* Hidden by default */
+            transition: left 0.3s ease;
+            padding-top: 60px; /* To avoid header */
+            z-index: 1001; /* Sits below the menu button */
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #232147;
+            border-radius: 5px;
+        }
+
+        .content {
+            margin-top: 50px; /* Adjusted to account for the fixed header */
+            padding: 20px;
+            background-color: #f1f1f1;
+            box-sizing: border-box;
+            width: 100%;
+            flex-grow: 1;
+            transition: margin-left 0.3s ease;
+        }
+
+        .content.hides {
+            margin-left: 250px; /* Shifts content when the sidebar is open */
+        }
+
+        .content h2 {
+            font-size: 24px;
+            color: #0b032d;
+            margin-bottom: 20px;
+        }
+
+        .recruitment-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(244, 241, 241, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-group select {
+            background-color: #f1f1f1;
+        }
+
+        .submit-button {
+            background-color: #0b032d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .submit-button:hover {
+            background-color: #232147;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <button class="menu-button" onclick="toggleSidebar()">☰ Menu</button>
+        <h1>Recruitment Portal</h1>
+        <button class="logout-button">Logout</button>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fa fa-info-circle"></i> About</a></li>
+            <li><a href="#"><i class="fa fa-phone"></i> Contact Us</a></li>
+            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+            <li><a href="#"><i class="fa fa-sign-in"></i> Sign Up</a></li>
+        </ul>
+    </div>
+
+    <div class="content" id="content">
+        <h2>Add Recruitment Details</h2>
+        <form class="recruitment-form">
+            <div class="form-group">
+                <label for="recruiterName">Name of the Recruiter</label>
+                <input type="text" id="recruiterName" name="recruiterName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="companyProfile">Brief Profile of Company with Website</label>
+                <textarea id="companyProfile" name="companyProfile" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="jobTitle">Job Title</label>
+                <input type="text" id="jobTitle" name="jobTitle" required>
+            </div>
+
+            <div class="form-group">
+                <label for="jobRole">Job Role</label>
+                <input type="text" id="jobRole" name="jobRole" required>
+            </div>
+
+            <div class="form-group">
+                <label for="eligibility">Eligibility</label>
+                <input type="text" id="eligibility" name="eligibility" required>
+            </div>
+
+            <div class="form-group">
+                <label for="skillSet">Skill Set Required</label>
+                <input type="text" id="skillSet" name="skillSet" required>
+            </div>
+
+            <div class="form-group">
+                <label for="selectionProcess">Selection Process</label>
+                <textarea id="selectionProcess" name="selectionProcess" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="ctc">CTC</label>
+                <input type="text" id="ctc" name="ctc" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location of Posting</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+
+            <div class="form-group">
+                <label for="trainingNeed">Training Need</label>
+                <input type="text" id="trainingNeed" name="trainingNeed" required>
+            </div>
+
+            <div class="form-group">
+                <label for="recruiterStatus">Existing/New Recruiter</label>
+                <select id="recruiterStatus" name="recruiterStatus" required>
+                    <option value="existing">Existing</option>
+                    <option value="new">New</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="registrationDeadline">Last Date for Registration</label>
+                <input type="date" id="registrationDeadline" name="registrationDeadline" required>
+            </div>
+
+            <div class="form-group">
+                <label for="recruitmentDates">Tentative Dates for Recruitment</label>
+                <input type="date" id="recruitmentDates" name="recruitmentDates" required>
+            </div>
+
+            <div class="form-group">
+                <label for="driveMode">Mode of Campus Drive</label>
+                <select id="driveMode" name="driveMode" required>
+                    <option value="onCampus">On Campus</option>
+                    <option value="offCampus">Off Campus</option>
+                    <option value="virtual">Virtual</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="additionalInfo">Any Other Information</label>
+                <textarea id="additionalInfo" name="additionalInfo" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="submit-button">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var content = document.getElementById("content");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+                content.classList.add("hides"); // Adjust content margin when sidebar opens
+            } else {
+                sidebar.style.left = "-250px";
+                content.classList.remove("hides"); // Reset content margin when sidebar closes
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #1e1e36;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .header div {
+            margin: 10px 0;
+        }
+        .header div span {
+            display: block;
+            font-size: 24px;
+        }
+        .header div span:first-child {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .content {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: white;
+            margin-top: -20px;
+        }
+        .content h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            background-color: #4c27f5;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #3a1fb5;
+        }
+        .hero-section {
+            background: url('C:/Domain project/contactus(1).jpg') no-repeat center center/cover;
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        .hero-section h1 {
+            font-size: 2.5em; 
+            margin-bottom: 20px;
+        }
+        .hero-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+        .contact-btn {
+            background-color: #6c63ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .contact-btn:hover {
+            background-color: #514bb5;
+        }
+        .navbar {
+            margin-bottom: 0;
+        }
+        .navbar-brand {
+            position: relative;
+            display: inline-block;
+            padding-left: 50px;
+        }
+        .navbar-brand::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background: url('C:/Domain project/logo.jpg') no-repeat center center/contain;
+            transform: translateY(-60%);
+        }
+        .image-button {
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .image-button img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+        .image-button img:hover {
+            transform: scale(1.05);
+        }
+        .contact-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 50px 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        .contact-form {
+            max-width: 600px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .contact-form .form-group {
+            margin-bottom: 15px;
+        }
+        .contact-form .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .contact-form .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .contact-form .form-group input[type="submit"] {
+            background-color: #4c27f5;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .contact-form .form-group input[type="submit"]:hover {
+            background-color: #3a1fb5;
+        }
+        .contact-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        #chat-widget {
+            display: none; /* Initially hide the chatbot widget */
+            position: fixed;
+            bottom: 20px;
+            left: 20px; /* Position the widget in the bottom-left corner */
+            width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            z-index: 1000;
+        }
+        #chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+        }
+        #chat-box {
+            flex: 1;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            overflow-y: auto;
+            background-color: #f5f5f5;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #e5e5e5;
+        }
+        .user-message {
+            background-color: #4c27f5;
+            color: white;
+            text-align: right;
+        }
+        .chatbot-message {
+            background-color: #ddd;
+        }
+        #user-input {
+            padding: 10px;
+            border: none;
+            border-top: 1px solid #ddd;
+            width: calc(100% - 80px);
+        }
+        button {
+            background-color: #4c27f5;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 80px;
+        }
+        button:hover {
+            background-color: #3a1fb5;
+        }
+        #chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background: url('C:/Domain project/chatbot-icon.png') no-repeat center center/contain;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .social-icons {
+            margin-top: 20px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            color: black; /* Set the icon color to black */
+            font-size: 24px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        .social-icons a:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <span>CTPMS</span>
+            <span>Contact Us</span>
+        </div>
+    </div>
+
+    <div class="hero-section">
+        <h1>Get in Touch</h1>
+        <p>We'd love to hear from you! Reach out to us with any questions or concerns.</p>
+    </div>
+
+    <div class="contact-content">
+        <div class="contact-form">
+            <form action="contact.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Send Message">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-align: center;">
+        If you have any questions?
+    </h3>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/centurion_universityap?igsh=MTVpbWI5eXN3ZmZiZA==" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@cutmapc_studios3894?si=BKLNyH0YfAgQXR9Y" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/school/centurion-university-of-technology-and-management/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.facebook.com/CenturionUniversityAndhraPradesh?mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a>
+
+    </div>
+
+    <div id="chat-widget">
+        <div id="chat-container">
+            <div id="chat-box"></div>
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <div id="chatbot-icon" onclick="toggleChatWidget()"></div>
+
+    <script>
+        // Chatbot responses (replace with your AI logic)
+        const responses = {
+            "hi": "Hello! How can I help you?",
+            "how are you": "I'm just a chatbot, but thank you for asking!",
+            "what is your name": "I'm just a chatbot, I don't have a name.",
+            "bye": "Goodbye! Have a great day!",
+        };
+
+        // Function to send user message and get response
+        function sendMessage() {
+            const userInput = document.getElementById("user-input").value;
+            const chatBox = document.getElementById("chat-box");
+
+            // Display user message
+            chatBox.innerHTML += `<div class="message user-message">You: ${userInput}</div>`;
+
+            // Get response from chatbot
+            const response = responses[userInput.toLowerCase()] || "I'm sorry, I didn't understand that.";
+            
+            // Display chatbot response
+            chatBox.innerHTML += `<div class="message chatbot-message">Chatbot: ${response}</div>`;
+
+            // Clear user input
+            document.getElementById("user-input").value = "";
+
+            // Scroll to the bottom of chat box
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Function to toggle chat widget visibility
+        function toggleChatWidget() {
+            const chatWidget = document.getElementById("chat-widget");
+            chatWidget.style.display = chatWidget.style.display === "none" || chatWidget.style.display === "" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

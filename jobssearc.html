@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Jobs for Students</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTTXWEQlGQjObGxCojQ+ZG1BrYPb2RRy6CAzhxikH5xk5i/kN5Cj6rXVVV6Zp+1rUyN1Y6txTg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Add the following CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .sidebar {
+            background-color: #0b032d;
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            color: white;
+        }
+
+        .sidebar h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #575b61;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+
+        .header .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .user-info h2 {
+            margin: 0 0 0 10px;
+        }
+
+        .header .user-info p {
+            margin: 0 0 0 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .header .actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .actions button {
+            background-color: #2449e0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .header .actions button:hover {
+            background-color: #2449e0;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #2449e0;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #1d3bb8;
+        }
+
+        .recommended-jobs {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .recommended-jobs table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .recommended-jobs table,
+        .recommended-jobs th,
+        .recommended-jobs td {
+            border: 1px solid #ddd;
+        }
+
+        .recommended-jobs th,
+        .recommended-jobs td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .recommended-jobs th {
+            background-color: #f4f4f4;
+        }
+
+        .recommended-jobs .apply-button {
+            background-color: #2449e0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .recommended-jobs .apply-button:hover {
+            background-color: #1d3bb8;
+        }
+
+        /* New CSS for file upload section */
+        .file-upload {
+            margin-top: 20px;
+        }
+
+        .file-upload input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        .file-upload button {
+            background-color: #2449e0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .file-upload button:hover {
+            background-color: #1d3bb8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>CTPMS</h2>
+        <ul>
+            <li><a href="home_page.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="jobssearc.html"><i class="fas fa-briefcase"></i>Jobs</a></li>
+            <li><a href="apply.html"><i class="fas fa-tasks"></i>Applied Jobs</a></li>
+            <li><a href="sprofile.html"><i class="fas fa-user"></i>My Profile</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Log Out</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="header">
+            <div class="user-info">
+                <img src="C:\Users\harsh\Music\WhatsApp Image 2024-02-25 at 10.44.34 PM.jpeg" alt="User Image">
+                <div>
+                    <h2>Welcome back, Harshitha.P</h2>
+                    <p>You have 2 new messages </p>
+                </div>
+            </div>
+            <div class="actions">
+                <button>Messages</button>
+                <button>Log Out</button>
+            </div>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for jobs or job roles">
+            <button><i class="fas fa-search"></i> Search</button>
+        </div>
+        <div class="recommended-jobs">
+            <h2>Apply Jobs for Students</h2>
+            <table id="jobs-table">
+                <tr>
+                    <th>Student Name</th>
+                    <th>Job Title</th>
+                    <th>Company Name</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <td>Poojari Harshitha</td>
+                    <td>Web developer</td>
+                    <td>Google</td>
+                    <td><button class="apply-button">Apply Now</button></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </table>
+        </div>
+        <!-- File Upload Section -->
+        <div class="file-upload">
+            <h2>Import Job Data</h2>
+            <input type="file" id="file-input" accept=".xlsx,.xls,.pdf">
+            <button id="upload-button">Upload</button>
+        </div>
+    </div>
+    <!-- Load the necessary JavaScript libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const applyButtons = document.querySelectorAll('.apply-button');
+
+            applyButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const row = event.target.closest('tr');
+                    const studentName = row.cells[0].textContent;
+                    const jobTitle = row.cells[1].textContent;
+                    const companyName = row.cells[2].textContent;
+
+                    const appliedJob = {
+                        studentName,
+                        jobTitle,
+                        companyName
+                    };
+
+                    let appliedJobs = JSON.parse(localStorage.getItem('appliedJobs')) || [];
+                    appliedJobs.push(appliedJob);
+                    localStorage.setItem('appliedJobs', JSON.stringify(appliedJobs));
+
+                    alert(`Applied for ${jobTitle} at ${companyName}`);
+                });
+            });
+
+            // Handle file upload
+            const fileInput = document.getElementById('file-input');
+            const uploadButton = document.getElementById('upload-button');
+
+            uploadButton.addEventListener('click', () => {
+                const file = fileInput.files[0];
+                if (file) {
+                    const fileExtension = file.name.split('.').pop();
+
+                    if (fileExtension === 'xlsx' || fileExtension === 'xls') {
+                        handleExcelFile(file);
+                    } else if (fileExtension === 'pdf') {
+                        handlePdfFile(file);
+                    } else {
+                        alert('Unsupported file format');
+                    }
+                } else {
+                    alert('Please select a file');
+                }
+            });
+
+            function handleExcelFile(file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const firstSheetName = workbook.SheetNames[0];
+                    const worksheet = workbook.Sheets[firstSheetName];
+                    const jsonData = XLSX.utils.sheet_to_json(worksheet);
+                    console.log(jsonData);
+                    // Process the jsonData and add to jobssearch or your desired storage
+                };
+                reader.readAsArrayBuffer(file);
+            }
+
+            function handlePdfFile(file) {
+                const reader = new FileReader();
+                reader.onload = function () {
+                    const typedArray = new Uint8Array(this.result);
+
+                    pdfjsLib.getDocument(typedArray).promise.then(pdf => {
+                        const pdfText = [];
+
+                        for (let i = 1; i <= pdf.numPages; i++) {
+                            pdf.getPage(i).then(page => {
+                                page.getTextContent().then(textContent => {
+                                    pdfText.push(textContent.items.map(item => item.str).join(' '));
+                                    if (pdfText.length === pdf.numPages) {
+                                        console.log(pdfText.join(' '));
+                                        // Process the pdfText and add to jobssearch or your desired storage
+                                    }
+                                });
+                            });
+                        }
+                    });
+                };
+                reader.readAsArrayBuffer(file);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXWEQlGQjObGxCojQ+ZG1BrYPb2RRy6CAzhxikH5xk5i/kN5Cj6rXVVV6Zp+1rUyN1Y6txTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .sidebar {
+            background-color: #0b032d;
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            color: white;
+        }
+
+        .sidebar h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #575b61;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .profile {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        .profile-details {
+            flex: 1;
+        }
+
+        .profile-details h2 {
+            margin: 0 0 10px;
+        }
+
+        .profile-details p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .edit-profile-button, .upload-button {
+            background-color: #6a0dad;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .edit-profile-button:hover, .upload-button:hover {
+            background-color: #5c09b2;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+    <script>
+        function redirectToEditProfile() {
+            window.location.href = "editsprofile.html";
+        }
+
+        function previewImage(event) {
+            const reader = new FileReader();
+            const imageField = document.getElementById("profileImage");
+
+            reader.onload = function(){
+                if (reader.readyState === 2) {
+                    imageField.src = reader.result;
+                }
+            }
+
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>CTPMS</h2>
+        <ul>
+            <li><a href="studentsmain.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="jobssearc.html"><i class="fas fa-briefcase"></i>Jobs</a></li>
+            <li><a href="apply.html"><i class="fas fa-tasks"></i>Applied Jobs</a></li>
+            <li><a href="sprofile.html"><i class="fas fa-user"></i>My Profile</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Log Out</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>My Profile</h1>
+        <div class="profile">
+            <img id="profileImage" src="C:\Users\harsh\Music\WhatsApp Image 2024-02-25 at 10.44.34 PM.jpeg" alt="User Image">
+            <div class="profile-details">
+                <h2>Harshitha.P</h2>
+                <p>CSE</p>
+                <label for="uploadImage" class="upload-button">Change Image</label>
+                <input type="file" id="uploadImage" accept="image/*" onchange="previewImage(event)">
+                <button class="edit-profile-button" onclick="redirectToEditProfile()">Edit Profile</button>
+                <p>Email ID: user@user.com</p>
+                <p>Phone Number: 6304194553</p>
+                <p>Address: Srikakulam</p>
+                <p>Course: CSW</p>
+                <p>Additional Info: I am a web developer</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

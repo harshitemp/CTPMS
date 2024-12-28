@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header, footer {
+            background-color: #02092a;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1, footer p {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            background-color: white;
+            padding: 40px 20px;
+            margin: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro, .team, .mission {
+            margin-bottom: 40px;
+        }
+
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .team-members img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .team-member {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        .team-member:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Contact Details Section Styles */
+        #contactDetails {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        #contactDetails h2 {
+            margin-top: 0;
+        }
+
+        #contactDetails p {
+            margin-bottom: 10px;
+        }
+
+        #contactButton {
+            background-color: #323ade;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #contactButton:hover {
+            background-color: #0972b8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+        <nav>
+            <ul>
+                <li><a href="home_page.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contactus.html">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Welcome to Our website</h2>
+            <p>The CTMPS allows users to search jobs  for student and post jobs for companies, including registration, post jobs, and more.</p>
+        </section>
+        <section class="team">
+            <h2>Our Team</h2>
+            <div class="team-members">
+                <img src="./all memebers.jpg" alt="Group Members">
+                <button id="contactButton">Contact Us</button>
+            </div>
+        </section>
+        <section id="contactDetails">
+            <h2>Contact Details</h2>
+            <p>Contact Number: 6304194553</p>
+            <p>Email: harshithapoojari123@gmail.com</p>
+            <p>Name: P.Harshitha</p>
+            <br>
+            <p>Contact Number:8639858572 </p>
+            <p>Email: vasubalagam43@gmail.com </p>
+            <p>Name:B.Vasu</p>
+            <br>
+            <p>Contact Number:9391541906</p>
+            <p>Email: mbmandalapu200217@gmail.com</p>
+            <p>Name: M.Mahesh Babu</p>
+            <br>
+            <p>Contact Number: 9515091056</p>
+            <p>Email: srujanachintha28@gmail.com</p>
+            <p>Name:CH.Srujana</p>
+            <br>
+            <p>Contact Number: 7780732673</p>
+            <p>Email: avarshita2004@gmail.com</p>
+            <p>Name: A.Varshitha</p>
+            <br>
+        </section>
+        <section class="mission">
+            <h2>Our Mission</h2>
+            <p>The main aim of the CTMPS website is to search jobs for student and post jobs for companies</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Centurion University of Management. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("contactButton").addEventListener("click", function() {
+            var contactDetails = document.getElementById("contactDetails");
+            if (contactDetails.style.display === "none") {
+                contactDetails.style.display = "block";
+            } else {
+                contactDetails.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

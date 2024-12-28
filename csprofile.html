@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #1e1e36;
+            color: white;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .profile-header h1 {
+            margin: 0;
+        }
+        .profile-header button {
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .profile-header button:hover {
+            background-color: #5145cc;
+        }
+        .profile-card {
+            display: flex;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .profile-card img {
+            border-radius: 8px;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        .profile-details {
+            flex: 1;
+        }
+        .profile-details h2 {
+            margin: 0 0 10px 0;
+        }
+        .profile-details p {
+            margin: 5px 0;
+        }
+    </style>
+    <script>
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function displayProfile() {
+            const name = getQueryParameter('name');
+            const profiles = {
+                'Alex': {
+                    course: 'BCA',
+                    email: 'user2@user.com',
+                    phone: '+19632587458',
+                    address: 'London',
+                    resume: 'dummy.pdf',
+                    portfolio: 'https://placement-portfolio.com'
+                },
+                'John J.': {
+                    course: 'BCA',
+                    email: 'user3@user.com',
+                    phone: '655535556',
+                    address: 'New York',
+                    resume: 'dummy.pdf',
+                    portfolio: 'https://placement-portfolio.com/john'
+                }
+            };
+
+            if (profiles[name]) {
+                const profile = profiles[name];
+                document.getElementById('profile-name').innerText = name;
+                document.getElementById('profile-course').innerText = profile.course;
+                document.getElementById('profile-email').innerText = profile.email;
+                document.getElementById('profile-phone').innerText = profile.phone;
+                document.getElementById('profile-address').innerText = profile.address;
+                document.getElementById('profile-resume').innerHTML = `<a href="#">${profile.resume}</a>`;
+                document.getElementById('profile-portfolio').innerHTML = `<a href="${profile.portfolio}">${profile.portfolio}</a>`;
+            } else {
+                document.getElementById('profile-content').innerText = 'Profile not found';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', displayProfile);
+    </script>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>CTPMS</h2>
+        <a href="companymain.html">Home</a>
+    <a href="#">Job Posted</a>
+    <a href="#">View Applicants</a>
+    <a href="studentsapply.html">Student List</a>
+    <a href="#">My Profile</a>
+    <a href="#">Log Out</a>
+</div>
+
+<div class="content">
+    <div class="profile-header">
+        <h1>Student Profile</h1>
+        <button onclick="window.location.href='studentsapply.html'">Back</button>
+    </div>
+    <div id="profile-content" class="profile-card">
+        <img src="https://via.placeholder.com/150" alt="Profile Picture">
+        <div class="profile-details">
+            <h2 id="profile-name"></h2>
+            <p><strong>Course:</strong> <span id="profile-course"></span></p>
+            <p><strong>Email ID:</strong> <span id="profile-email"></span></p>
+            <p><strong>Phone Number:</strong> <span id="profile-phone"></span></p>
+            <p><strong>Address:</strong> <span id="profile-address"></span></p>
+            <p><strong>Resume:</strong> <span id="profile-resume"></span></p>
+            <p><strong>Portfolio:</strong> <span id="profile-portfolio"></span></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
